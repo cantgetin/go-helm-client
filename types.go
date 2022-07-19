@@ -74,6 +74,7 @@ type GenericHelmOptions struct {
 type ChartSpec struct {
 	ReleaseName string `json:"release"`
 	ChartName   string `json:"chart"`
+	ChartFolder string `json:"charFolder"`
 	// Namespace where the chart release is deployed.
 	// Note that helmclient.Options.Namespace should ideally match the namespace configured here.
 	Namespace string `json:"namespace"`
