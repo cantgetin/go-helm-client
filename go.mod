@@ -1,4 +1,4 @@
-module github.com/denismitr/go-helm-client
+module github.com/cantgetin/go-helm-client
 
 go 1.22.0
 

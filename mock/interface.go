@@ -8,8 +8,8 @@ import (
 	context "context"
 	reflect "reflect"
 
+	helmclient "github.com/cantgetin/go-helm-client"
 	gomock "github.com/golang/mock/gomock"
-	helmclient "github.com/denismitr/go-helm-client"
 	action "helm.sh/helm/v3/pkg/action"
 	release "helm.sh/helm/v3/pkg/release"
 	repo "helm.sh/helm/v3/pkg/repo"
