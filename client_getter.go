@@ -1,6 +1,8 @@
 package helmclient
 
 import (
+	"log"
+
 	"k8s.io/apimachinery/pkg/api/meta"
 	"k8s.io/client-go/discovery"
 	"k8s.io/client-go/discovery/cached/memory"
@@ -51,8 +53,12 @@ func (c *RESTClientGetter) ToRESTMapper() (meta.RESTMapper, error) {
 		return nil, err
 	}
 
+	warningHandler := func(message string) {
+		log.Printf(message)
+	}
+	
 	mapper := restmapper.NewDeferredDiscoveryRESTMapper(discoveryClient)
-	expander := restmapper.NewShortcutExpander(mapper, discoveryClient)
+	expander := restmapper.NewShortcutExpander(mapper, discoveryClient, warningHandler)
 	return expander, nil
 }
 
